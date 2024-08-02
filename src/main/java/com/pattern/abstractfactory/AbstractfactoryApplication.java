@@ -1,7 +1,6 @@
 package com.pattern.abstractfactory;
 
-import domain.Shape;
-import domain.ShapeFactory;
+import domain.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -17,6 +16,19 @@ public class AbstractfactoryApplication {
 
 		Shape shape2 = ShapeFactory.getShape("RECTANGLE");
 		shape2.draw();
+
+		System.out.println();
+
+//		Document Creator
+
+		DocumentCreator documentCreator = new WordDocumentCreator();
+		Document doc = documentCreator.createDocument();
+		doc.open();
+
+		DocumentCreator documentCreator1 = new PDFDocumentCreator();
+		Document doc1 = documentCreator1.createDocument();
+		doc1.open();
+
 	}
 
 }
